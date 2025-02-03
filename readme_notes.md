@@ -1,0 +1,1 @@
+Added to make quick notes during development for reference when needed for readme.md
