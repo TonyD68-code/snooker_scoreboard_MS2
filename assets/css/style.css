@@ -73,7 +73,20 @@ h1 {
 
 /* control buttons */
 .d-grid .btn {
-    width: 200px;
-    margin: 5px auto;
-    padding: 10px 0;
+    width: 95%; 
+    max-width: 200px;  
+    margin: 3px auto;  
+    padding: 8px 0;    
+    font-size: 1rem; 
+}
+
+/* control buttons media queries */
+
+@media (max-width: 576px) {
+    .d-grid .btn {
+        width: 95%;  
+        padding: 6px 0; 
+        font-size: 1rem;  
+        margin: 2px auto; 
+    }
 }
