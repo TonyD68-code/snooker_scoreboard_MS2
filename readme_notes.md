@@ -45,7 +45,7 @@ NEXT STEPS:
 
 CREDITS:
 - JavaScript localStorage implementation for player names inspired by Scrimba.com free JavaScript lessons
-- Media queries for responsive control buttons adapted from YouTube tutorial (add specific video reference in final readme)
+- Media queries for responsive control buttons adapted from YouTube tutorial: Learn with Hitgoc https://www.youtube.com/watch?v=nppV4aDtuvo 
 
 
 
