@@ -1,27 +1,23 @@
 /*jshint esversion: 6 */
 document.addEventListener('DOMContentLoaded', function() {
-    // Display player names from localStorage
-    document.getElementById('player-one-name').textContent = localStorage.getItem('playerOneName');
-    document.getElementById('player-two-name').textContent = localStorage.getItem('playerTwoName');
-    
     // Initialize variables
     let currentBreak = 0;
-    let activePlayer = 'player-one'; // Start with player one as active
+    let activePlayer = 'player-one';
+    let playerOneFrameScore = 0;
+    let playerTwoFrameScore = 0;
     let playerOneHighestBreak = 0;
     let playerTwoHighestBreak = 0;
-    let playerOneFrameScore = 0;
-    let playerTwoFrameScore = 0; 
-    // Initialize frame wins
     let playerOneFrameWins = 0;
     let playerTwoFrameWins = 0;
 
-    // Function to update active player visual indication
+    // Display player names from localStorage
+    document.getElementById('player-one-name').textContent = localStorage.getItem('playerOneName');
+    document.getElementById('player-two-name').textContent = localStorage.getItem('playerTwoName');
+
+    // Function to update active player display
     function updateActivePlayerDisplay() {
-        // Reset both columns
         document.getElementById('player-one-name').classList.remove('active-player');
         document.getElementById('player-two-name').classList.remove('active-player');
-        
-        // Highlight active player
         document.getElementById(`${activePlayer}-name`).classList.add('active-player');
     }
 
@@ -29,253 +25,72 @@ document.addEventListener('DOMContentLoaded', function() {
     function switchActivePlayer() {
         activePlayer = activePlayer === 'player-one' ? 'player-two' : 'player-one';
         updateActivePlayerDisplay();
-        console.log(`Active player switched to: ${activePlayer}`);
     }
 
     // Add click handlers to player names
     document.getElementById('player-one-name').style.cursor = 'pointer';
     document.getElementById('player-two-name').style.cursor = 'pointer';
-    
     document.getElementById('player-one-name').addEventListener('click', switchActivePlayer);
     document.getElementById('player-two-name').addEventListener('click', switchActivePlayer);
-    
-    // Get all red ball images
-    const redBalls = document.querySelectorAll('.ball-img[src*="red"]');
-    
+
     // Add click event listeners to red balls
+    const redBalls = document.querySelectorAll('.ball-img[src*="red"]');
     redBalls.forEach(ball => {
         ball.addEventListener('click', function() {
-            // Get the column this ball belongs to
             const column = this.closest('.col-4');
             const isPlayerOneColumn = column.contains(document.getElementById('player-one-name'));
             
-            // Check if this ball belongs to the active player
             if ((activePlayer === 'player-one' && isPlayerOneColumn) ||
                 (activePlayer === 'player-two' && !isPlayerOneColumn)) {
-                
-                // Add 1 point to current break
                 currentBreak += 1;
-                
-                // Update current break display
                 document.getElementById('current-break').textContent = currentBreak;
-                
-                // Log for testing
-                console.log(`${activePlayer} scored a red ball! Current break: ${currentBreak}`);
             } else {
                 console.log("Not your turn!");
             }
         });
     });
-    
-    // Get all yellow ball images
-    const yellowBalls = document.querySelectorAll('.ball-img[src*="yellow"]');
-    
+
     // Add click event listeners to yellow balls
+    const yellowBalls = document.querySelectorAll('.ball-img[src*="yellow"]');
     yellowBalls.forEach(ball => {
         ball.addEventListener('click', function() {
-            // Get the column this ball belongs to
             const column = this.closest('.col-4');
             const isPlayerOneColumn = column.contains(document.getElementById('player-one-name'));
             
-            // Check if this ball belongs to the active player
             if ((activePlayer === 'player-one' && isPlayerOneColumn) ||
                 (activePlayer === 'player-two' && !isPlayerOneColumn)) {
-                
-                // Add 2 points to current break
                 currentBreak += 2;
-                
-                // Update current break display
                 document.getElementById('current-break').textContent = currentBreak;
-                
-                // Log for testing
-                console.log(`${activePlayer} scored a yellow ball! Current break: ${currentBreak}`);
-            } else {
-                console.log("Not your turn!");
-            }
-        });
-    });
-    
-    // Get all brown ball images
-    const brownBalls = document.querySelectorAll('.ball-img[src*="brown"]');
-    
-    // Get all green ball images
-    const greenBalls = document.querySelectorAll('.ball-img[src*="green"]');
-    
-    // Add click event listeners to green balls
-    greenBalls.forEach(ball => {
-        ball.addEventListener('click', function() {
-            // Get the column this ball belongs to
-            const column = this.closest('.col-4');
-            const isPlayerOneColumn = column.contains(document.getElementById('player-one-name'));
-            
-            // Check if this ball belongs to the active player
-            if ((activePlayer === 'player-one' && isPlayerOneColumn) ||
-                (activePlayer === 'player-two' && !isPlayerOneColumn)) {
-                
-                // Add 3 points to current break
-                currentBreak += 3;
-                
-                // Update current break display
-                document.getElementById('current-break').textContent = currentBreak;
-                
-                // Log for testing
-                console.log(`${activePlayer} scored a green ball! Current break: ${currentBreak}`);
             } else {
                 console.log("Not your turn!");
             }
         });
     });
 
-            // Add click event listeners to brown balls
-            brownBalls.forEach(ball => {
-                ball.addEventListener('click', function() {
-                    // Get the column this ball belongs to
-                    const column = this.closest('.col-4');
-                    const isPlayerOneColumn = column.contains(document.getElementById('player-one-name'));
-                    
-                    // Check if this ball belongs to the active player
-                    if ((activePlayer === 'player-one' && isPlayerOneColumn) ||
-                        (activePlayer === 'player-two' && !isPlayerOneColumn)) {
-                        
-                        // Add 4 points to current break
-                        currentBreak += 4;
-                        
-                        // Update current break display
-                        document.getElementById('current-break').textContent = currentBreak;
-                        
-                        // Log for testing
-                        console.log(`${activePlayer} scored a brown ball! Current break: ${currentBreak}`);
-                    } else {
-                        console.log("Not your turn!");
-                    }
-                });
-            });
-
-       // Get all blue ball images
-       const blueBalls = document.querySelectorAll('.ball-img[src*="blue"]');
-    
-       // Add click event listeners to blue balls
-       blueBalls.forEach(ball => {
-           ball.addEventListener('click', function() {
-               // Get the column this ball belongs to
-               const column = this.closest('.col-4');
-               const isPlayerOneColumn = column.contains(document.getElementById('player-one-name'));
-               
-               // Check if this ball belongs to the active player
-               if ((activePlayer === 'player-one' && isPlayerOneColumn) ||
-                   (activePlayer === 'player-two' && !isPlayerOneColumn)) {
-                   
-                   // Add 5 points to current break
-                   currentBreak += 5;
-                   
-                   // Update current break display
-                   document.getElementById('current-break').textContent = currentBreak;
-                   
-                   // Log for testing
-                   console.log(`${activePlayer} scored a blue ball! Current break: ${currentBreak}`);
-               } else {
-                   console.log("Not your turn!");
-               }
-           });
-       });
-
-             // Get all pink ball images
-             const pinkBalls = document.querySelectorAll('.ball-img[src*="pink"]');
-    
-             // Add click event listeners to pink balls
-             pinkBalls.forEach(ball => {
-                 ball.addEventListener('click', function() {
-                     // Get the column this ball belongs to
-                     const column = this.closest('.col-4');
-                     const isPlayerOneColumn = column.contains(document.getElementById('player-one-name'));
-                     
-                     // Check if this ball belongs to the active player
-                     if ((activePlayer === 'player-one' && isPlayerOneColumn) ||
-                         (activePlayer === 'player-two' && !isPlayerOneColumn)) {
-                         
-                         // Add 6 points to current break
-                         currentBreak += 6;
-                         
-                         // Update current break display
-                         document.getElementById('current-break').textContent = currentBreak;
-                         
-                         // Log for testing
-                         console.log(`${activePlayer} scored a pink ball! Current break: ${currentBreak}`);
-                     } else {
-                         console.log("Not your turn!");
-                     }
-                 });
-             });
-
-                   // Get all black ball images
-       const blackBalls = document.querySelectorAll('.ball-img[src*="black"]');
-    
-       // Add click event listeners to black balls
-       blackBalls.forEach(ball => {
-           ball.addEventListener('click', function() {
-               // Get the column this ball belongs to
-               const column = this.closest('.col-4');
-               const isPlayerOneColumn = column.contains(document.getElementById('player-one-name'));
-               
-               // Check if this ball belongs to the active player
-               if ((activePlayer === 'player-one' && isPlayerOneColumn) ||
-                   (activePlayer === 'player-two' && !isPlayerOneColumn)) {
-                   
-                   // Add 5 points to current break
-                   currentBreak += 7;
-                   
-                   // Update current break display
-                   document.getElementById('current-break').textContent = currentBreak;
-                   
-                   // Log for testing
-                   console.log(`${activePlayer} scored a black ball! Current break: ${currentBreak}`);
-               } else {
-                   console.log("Not your turn!");
-               }
-           });
-       });
-
-
-    // Initial active player display
-    updateActivePlayerDisplay();
-
-    // Function to end break sequence
+    // End Break button handler
     document.getElementById('end-break').addEventListener('click', function() {
-        // Add current break to active player's frame score
         if (activePlayer === 'player-one') {
             playerOneFrameScore += currentBreak;
-            // Update highest break if current break is higher
             if (currentBreak > playerOneHighestBreak) {
                 playerOneHighestBreak = currentBreak;
                 document.getElementById('player-one-highest-break').textContent = playerOneHighestBreak;
             }
-            // Update frame score display
             document.getElementById('player-one-frame-score').textContent = playerOneFrameScore;
         } else {
             playerTwoFrameScore += currentBreak;
-            // Update highest break if current break is higher
             if (currentBreak > playerTwoHighestBreak) {
                 playerTwoHighestBreak = currentBreak;
                 document.getElementById('player-two-highest-break').textContent = playerTwoHighestBreak;
             }
-            // Update frame score display
             document.getElementById('player-two-frame-score').textContent = playerTwoFrameScore;
         }
-
-        // Log the break for testing
-        console.log(`Break of ${currentBreak} added to ${activePlayer}'s score`);
-        
-        // Reset current break
         currentBreak = 0;
         document.getElementById('current-break').textContent = currentBreak;
-        
-        // Switch active player
         switchActivePlayer();
     });
 
-    // Add subtract button functionality
+    // Subtract button handler
     document.getElementById('subtract').addEventListener('click', function() {
-        // Subtract current break from active player's frame score
         if (activePlayer === 'player-one') {
             playerOneFrameScore = Math.max(0, playerOneFrameScore - currentBreak);
             document.getElementById('player-one-frame-score').textContent = playerOneFrameScore;
@@ -283,18 +98,12 @@ document.addEventListener('DOMContentLoaded', function() {
             playerTwoFrameScore = Math.max(0, playerTwoFrameScore - currentBreak);
             document.getElementById('player-two-frame-score').textContent = playerTwoFrameScore;
         }
-
-        // Log the subtraction for testing
-        console.log(`Subtracted ${currentBreak} points from ${activePlayer}'s score`);
-        
-        // Reset current break
         currentBreak = 0;
         document.getElementById('current-break').textContent = currentBreak;
     });
 
-    // Add end frame button functionality
+    // End Frame button handler
     document.getElementById('end-frame').addEventListener('click', function() {
-        // Determine winner
         const winner = playerOneFrameScore > playerTwoFrameScore ? 'player-one' : 'player-two';
         const winnerName = winner === 'player-one' ? 
             localStorage.getItem('playerOneName') : 
@@ -304,18 +113,15 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.getItem('playerOneName');
         const scoreDifference = Math.abs(playerOneFrameScore - playerTwoFrameScore);
         
-        // Update frame wins
         if (winner === 'player-one') {
             playerOneFrameWins++;
         } else {
             playerTwoFrameWins++;
         }
         
-        // Update frame score
         document.getElementById('frame-score').textContent = 
             `${playerOneFrameWins} - ${playerTwoFrameWins}`;
 
-        // Create and show modal
         const modalHTML = `
             <div class="modal fade" id="endFrameModal" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
@@ -340,30 +146,24 @@ document.addEventListener('DOMContentLoaded', function() {
         const modal = new bootstrap.Modal(document.getElementById('endFrameModal'));
         modal.show();
         
-        // Play next frame
         document.getElementById('playNextFrame').addEventListener('click', function() {
-            // Reset frame scores
             playerOneFrameScore = 0;
             playerTwoFrameScore = 0;
             currentBreak = 0;
-            
-            // Update score display
             document.getElementById('player-one-frame-score').textContent = '0';
             document.getElementById('player-two-frame-score').textContent = '0';
             document.getElementById('current-break').textContent = '0';
-            
-            // Close modal
             modal.hide();
             document.getElementById('endFrameModal').remove();
-            
-            console.log('Starting new frame');
         });
         
-        // Handle end match reset and return to index.html
         document.querySelector('.btn-secondary').addEventListener('click', function() {
             window.location.href = 'index.html';
         });
     });
+
+    // Initial active player display
+    updateActivePlayerDisplay();
 });
 
 
