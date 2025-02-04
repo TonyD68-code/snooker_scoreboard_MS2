@@ -270,6 +270,25 @@ document.addEventListener('DOMContentLoaded', function() {
         // Switch active player
         switchActivePlayer();
     });
+
+    // Add subtract button functionality
+    document.getElementById('subtract').addEventListener('click', function() {
+        // Subtract current break from active player's frame score
+        if (activePlayer === 'player-one') {
+            playerOneFrameScore = Math.max(0, playerOneFrameScore - currentBreak);
+            document.getElementById('player-one-frame-score').textContent = playerOneFrameScore;
+        } else {
+            playerTwoFrameScore = Math.max(0, playerTwoFrameScore - currentBreak);
+            document.getElementById('player-two-frame-score').textContent = playerTwoFrameScore;
+        }
+
+        // Log the subtraction for testing
+        console.log(`Subtracted ${currentBreak} points from ${activePlayer}'s score`);
+        
+        // Reset current break
+        currentBreak = 0;
+        document.getElementById('current-break').textContent = currentBreak;
+    });
 });
 
 
