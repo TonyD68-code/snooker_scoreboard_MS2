@@ -24,11 +24,16 @@ FUNCTIONALITY ADDED:
   - Resets current break to zero
   - Switches active player
 
+- Added Subtract Points functionality:
+  - Subtracts current break from active player's frame score
+  - Resets current break to zero
+
 FIXES:
 - Fixed button sizing for mobile devices
 - Fixed active player highlighting using CSS specificity
 - Fixed column layout to maintain 3 columns on mobile
 - Fixed ball image sizing and spacing
+
 
 STYLING:
 - Added background image
@@ -41,11 +46,25 @@ NEXT STEPS:
 - Add remaining colored ball scoring
 - Implement End Frame functionality
 - Implement End Match functionality
-- Add Subtract Points functionality
+- Add sound effects for ball clicks and button presses
+
+If time allows, Nice to have...
+
+- Add animation effects for scoring
+- Add foul point system: (revove subract points functionality)
+  - 4 point fouls
+  - 5 point fouls
+  - 6 point fouls
+  - 7 point fouls
+- Add remaining balls counter for red balls
+
+
 
 CREDITS:
 - JavaScript localStorage implementation for player names inspired by Scrimba.com free JavaScript lessons
 - Media queries for responsive control buttons adapted from YouTube tutorial: Learn with Hitgoc https://www.youtube.com/watch?v=nppV4aDtuvo 
+- subtract button functionality added with research on stack overflow
+
 
 
 
