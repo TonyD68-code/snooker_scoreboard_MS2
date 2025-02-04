@@ -33,9 +33,12 @@
 
             
             <!-- Center Column -->
-            <div class="col-4">
+            <div class="col-4 d-flex flex-column">
                 <h2 class="text-center text-white mt-3">Score</h2>
                 <p id="frame-score" class="text-center text-white h3 mt-3">0 - 0</p>
+                <div class="text-center text-white current-break-container">
+                    <p>Current Break: <span id="current-break">0</span></p>
+                </div>
             </div>
             
             <!-- Player Two Column -->
@@ -50,7 +53,10 @@
                     <img src="assets/images/balls/pink-ball.png" alt="Pink Ball" class="ball-img">
                     <img src="assets/images/balls/black-ball.png" alt="Black Ball" class="ball-img">
                 </div>
-
+                <div class="text-center text-white mt-3">
+                    <p>Highest Break: <span id="player-two-highest-break">0</span></p>
+                    <p>Frame Score: <span id="player-two-frame-score">0</span></p>
+                </div>
             </div>
         </div>
     </div>
