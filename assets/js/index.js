@@ -14,8 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Redirect to score.html
         window.location.href = 'score.html';
-                
-        // Redirect to score.html
-        window.location.href = 'score.html';
+
     });
 });
