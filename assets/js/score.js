@@ -45,6 +45,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Get all yellow ball images
+    const yellowBalls = document.querySelectorAll('.ball-img[src*="yellow"]');
+    
+    // Add click event listeners to yellow balls
+    yellowBalls.forEach(ball => {
+        ball.addEventListener('click', function() {
+            // Get the column this ball belongs to
+            const column = this.closest('.col-4');
+            const isPlayerOneColumn = column.contains(document.getElementById('player-one-name'));
+            
+            // Check if this ball belongs to the active player
+            if ((activePlayer === 'player-one' && isPlayerOneColumn) ||
+                (activePlayer === 'player-two' && !isPlayerOneColumn)) {
+                
+                // Add 2 points to current break
+                currentBreak += 2;
+                
+                // Update current break display
+                document.getElementById('current-break').textContent = currentBreak;
+                
+                // Log for testing
+                console.log(`${activePlayer} scored a yellow ball! Current break: ${currentBreak}`);
+            } else {
+                console.log("Not your turn!");
+            }
+        });
+    });
+    
     // Initial active player display
     updateActivePlayerDisplay();
 });
