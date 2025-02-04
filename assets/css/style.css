@@ -91,6 +91,7 @@ h1 {
     }
 }
 
+/* active player */
 .active-player {
     color: #ffd700 !important; 
 }
