@@ -33,16 +33,26 @@
                     <h2 class="text-center text-white mt-3">Score</h2>
                     <p id="frame-score" class="text-center text-white h3 mt-3">0 - 0</p>
                     
+                    <div class="text-center text-white mb-3">
+                        <p>Current Break: <span id="current-break">0</span></p>
+                    </div>
+                    
                     <!-- Control Buttons -->
                     <div class="d-grid gap-2 mt-3">
                         <button id="end-break" class="btn btn-primary">End Break</button>
-                        <button id="subtract" class="btn btn-warning">Subtract</button>
+                        <div class="dropdown">
+                            <button class="btn btn-warning dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Foul Points
+                            </button>
+                            <ul class="dropdown-menu w-100">
+                                <li><button class="dropdown-item" data-foul="4">4 Points</button></li>
+                                <li><button class="dropdown-item" data-foul="5">5 Points</button></li>
+                                <li><button class="dropdown-item" data-foul="6">6 Points</button></li>
+                                <li><button class="dropdown-item" data-foul="7">7 Points</button></li>
+                            </ul>
+                        </div>
                         <button id="end-frame" class="btn btn-success">End Frame</button>
                         <button id="end-match" class="btn btn-danger">End Match</button>
-                    </div>
-                    
-                    <div class="text-center text-white current-break-container">
-                        <p>Current Break: <span id="current-break">0</span></p>
                     </div>
                 </div>
                 

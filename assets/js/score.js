@@ -174,17 +174,29 @@ document.addEventListener('DOMContentLoaded', function() {
         switchActivePlayer();
     });
 
-    // Subtract button handler
-    document.getElementById('subtract').addEventListener('click', function() {
-        if (activePlayer === 'player-one') {
-            playerOneFrameScore = Math.max(0, playerOneFrameScore - currentBreak);
-            document.getElementById('player-one-frame-score').textContent = playerOneFrameScore;
-        } else {
-            playerTwoFrameScore = Math.max(0, playerTwoFrameScore - currentBreak);
-            document.getElementById('player-two-frame-score').textContent = playerTwoFrameScore;
-        }
-        currentBreak = 0;
-        document.getElementById('current-break').textContent = currentBreak;
+    // Add foul points handler
+    document.querySelectorAll('.dropdown-item').forEach(button => {
+        button.addEventListener('click', function() {
+            const foulPoints = parseInt(this.dataset.foul);
+            
+            // Add foul points to non-active player's score
+            if (activePlayer === 'player-one') {
+                playerTwoFrameScore += foulPoints;
+                document.getElementById('player-two-frame-score').textContent = playerTwoFrameScore;
+            } else {
+                playerOneFrameScore += foulPoints;
+                document.getElementById('player-one-frame-score').textContent = playerOneFrameScore;
+            }
+            
+            // Reset current break
+            currentBreak = 0;
+            document.getElementById('current-break').textContent = currentBreak;
+            
+            // Switch active player
+            switchActivePlayer();
+            
+            console.log(`Foul: ${foulPoints} points awarded to ${activePlayer}`);
+        });
     });
 
     // End Frame button handler

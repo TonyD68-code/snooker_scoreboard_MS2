@@ -93,6 +93,21 @@ h1 {
     }
 }
 
+/* dropdown menu for foul points button*/
+.dropdown-menu {
+    background-color: #343a40;
+}
+
+.dropdown-item {
+    color: white;
+    text-align: center;
+}
+
+.dropdown-item:hover {
+    background-color: #495057;
+    color: white;
+}
+
 
 
 
