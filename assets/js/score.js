@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('player-one-name').addEventListener('click', switchActivePlayer);
     document.getElementById('player-two-name').addEventListener('click', switchActivePlayer);
 
-    // Add click event listeners to red balls
+    // Add click event listeners to red balls (1 point)
     const redBalls = document.querySelectorAll('.ball-img[src*="red"]');
     redBalls.forEach(ball => {
         ball.addEventListener('click', function() {
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add click event listeners to yellow balls
+    // Add click event listeners to yellow balls (2 points)
     const yellowBalls = document.querySelectorAll('.ball-img[src*="yellow"]');
     yellowBalls.forEach(ball => {
         ball.addEventListener('click', function() {
@@ -60,6 +60,91 @@ document.addEventListener('DOMContentLoaded', function() {
             if ((activePlayer === 'player-one' && isPlayerOneColumn) ||
                 (activePlayer === 'player-two' && !isPlayerOneColumn)) {
                 currentBreak += 2;
+                document.getElementById('current-break').textContent = currentBreak;
+            } else {
+                console.log("Not your turn!");
+            }
+        });
+    });
+
+    // Add click event listeners to green balls (3 points)
+    const greenBalls = document.querySelectorAll('.ball-img[src*="green"]');
+    greenBalls.forEach(ball => {
+        ball.addEventListener('click', function() {
+            const column = this.closest('.col-4');
+            const isPlayerOneColumn = column.contains(document.getElementById('player-one-name'));
+            
+            if ((activePlayer === 'player-one' && isPlayerOneColumn) ||
+                (activePlayer === 'player-two' && !isPlayerOneColumn)) {
+                currentBreak += 3;
+                document.getElementById('current-break').textContent = currentBreak;
+            } else {
+                console.log("Not your turn!");
+            }
+        });
+    });
+
+    // Add click event listeners to brown balls (4 points)
+    const brownBalls = document.querySelectorAll('.ball-img[src*="brown"]');
+    brownBalls.forEach(ball => {
+        ball.addEventListener('click', function() {
+            const column = this.closest('.col-4');
+            const isPlayerOneColumn = column.contains(document.getElementById('player-one-name'));
+            
+            if ((activePlayer === 'player-one' && isPlayerOneColumn) ||
+                (activePlayer === 'player-two' && !isPlayerOneColumn)) {
+                currentBreak += 4;
+                document.getElementById('current-break').textContent = currentBreak;
+            } else {
+                console.log("Not your turn!");
+            }
+        });
+    });
+
+    // Add click event listeners to blue balls (5 points)
+    const blueBalls = document.querySelectorAll('.ball-img[src*="blue"]');
+    blueBalls.forEach(ball => {
+        ball.addEventListener('click', function() {
+            const column = this.closest('.col-4');
+            const isPlayerOneColumn = column.contains(document.getElementById('player-one-name'));
+            
+            if ((activePlayer === 'player-one' && isPlayerOneColumn) ||
+                (activePlayer === 'player-two' && !isPlayerOneColumn)) {
+                currentBreak += 5;
+                document.getElementById('current-break').textContent = currentBreak;
+            } else {
+                console.log("Not your turn!");
+            }
+        });
+    });
+
+    // Add click event listeners to pink balls (6 points)
+    const pinkBalls = document.querySelectorAll('.ball-img[src*="pink"]');
+    pinkBalls.forEach(ball => {
+        ball.addEventListener('click', function() {
+            const column = this.closest('.col-4');
+            const isPlayerOneColumn = column.contains(document.getElementById('player-one-name'));
+            
+            if ((activePlayer === 'player-one' && isPlayerOneColumn) ||
+                (activePlayer === 'player-two' && !isPlayerOneColumn)) {
+                currentBreak += 6;
+                document.getElementById('current-break').textContent = currentBreak;
+            } else {
+                console.log("Not your turn!");
+            }
+        });
+    });
+
+    // Add click event listeners to black balls (7 points)
+    const blackBalls = document.querySelectorAll('.ball-img[src*="black"]');
+    blackBalls.forEach(ball => {
+        ball.addEventListener('click', function() {
+            const column = this.closest('.col-4');
+            const isPlayerOneColumn = column.contains(document.getElementById('player-one-name'));
+            
+            if ((activePlayer === 'player-one' && isPlayerOneColumn) ||
+                (activePlayer === 'player-two' && !isPlayerOneColumn)) {
+                currentBreak += 7;
                 document.getElementById('current-break').textContent = currentBreak;
             } else {
                 console.log("Not your turn!");
