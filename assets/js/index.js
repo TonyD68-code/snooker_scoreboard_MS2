@@ -12,8 +12,10 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('playerOneName', playerOneName);
         localStorage.setItem('playerTwoName', playerTwoName);
         
-        // Log to confirm it's working REMOVE LOG LATER
-        console.log('Player One Name saved:', playerOneName);
-        console.log('Player Two Name saved:', playerTwoName);
+        // Redirect to score.html
+        window.location.href = 'score.html';
+                
+        // Redirect to score.html
+        window.location.href = 'score.html';
     });
 });
