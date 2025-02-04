@@ -47,6 +47,8 @@ h1 {
     background-color: #004d00;  /* Slightly darker green on hover */
 }
 
+/* score.html */
+
 .ball-list {
     display: flex;
     flex-direction: column;
