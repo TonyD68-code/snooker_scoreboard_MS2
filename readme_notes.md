@@ -17,23 +17,27 @@ FUNCTIONALITY ADDED:
   - Visual highlighting of active player
   - Click player names to switch turns
   - Only active player can score
-
 - Added End Break functionality:
   - Adds current break to player's frame score
   - Updates highest break if applicable
   - Resets current break to zero
   - Switches active player
-
 - Added Subtract Points functionality:
   - Subtracts current break from active player's frame score
   - Resets current break to zero
+- Added End Frame functionality:
+  - Updates frame score (e.g., "2-1")
+  - Shows modal with winner and score difference
+  - Option to play another frame or end match
+  - Resets frame scores while keeping highest breaks
 
 FIXES:
 - Fixed button sizing for mobile devices
 - Fixed active player highlighting using CSS specificity
 - Fixed column layout to maintain 3 columns on mobile
 - Fixed ball image sizing and spacing
-
+- Fixed modal functionality by adding Bootstrap js bundle
+- Fixed code organization and indentation in score.js and score.html
 
 STYLING:
 - Added background image
@@ -41,15 +45,15 @@ STYLING:
 - Added green rounded button for start game
 - Added white text for visibility
 - Added gold highlighting for active player
+- Consistent button sizing and spacing
 
 NEXT STEPS:
 - Add remaining colored ball scoring
-- Implement End Frame functionality
 - Implement End Match functionality
 - Add sound effects for ball clicks and button presses
 - Refactor code to make more efficient
 
-If time allows, Nice to have...
+-If time allows, Nice to have...
 
 - Add animation effects for scoring
 - Add foul point system: (revove subract points functionality)
@@ -58,7 +62,6 @@ If time allows, Nice to have...
   - 6 point fouls
   - 7 point fouls
 - Add remaining balls counter for red balls
-
 
 
 CREDITS:
@@ -88,7 +91,6 @@ Manual Testing Performed:
   - Tested scoring in both player columns
   - Verified current break updates correctly
 
-
 - Player Switching:
   - Tested name click functionality
   - Verified active player highlighting
@@ -107,6 +109,13 @@ Manual Testing Performed:
   - Tested subtraction with zero score
   - Confirmed current break resets after subtraction
   - Verified display updates correctly
+
+- End Frame Button:
+  - Tested frame completion modal
+  - Verified winner calculation
+  - Tested play next frame functionality
+  - Confirmed score difference calculation
+  - Verified frame score updates correctly
 
 - Responsive Design:
   - Tested on multiple screen sizes
