@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
            });
        });
 
-    
+
     // Initial active player display
     updateActivePlayerDisplay();
 
