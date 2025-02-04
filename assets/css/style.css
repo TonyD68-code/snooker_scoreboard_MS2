@@ -90,3 +90,10 @@ h1 {
         margin: 2px auto; 
     }
 }
+
+.active-player {
+    color: #ffd700 !important; 
+}
+
+
+
