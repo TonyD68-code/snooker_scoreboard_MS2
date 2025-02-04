@@ -7,6 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentBreak = 0;
     let activePlayer = 'player-one'; // Start with player one as active
     
+    // Initialize additional variables
+    let playerOneHighestBreak = 0;
+    let playerTwoHighestBreak = 0;
+    let playerOneFrameScore = 0;
+    let playerTwoFrameScore = 0;
+    
     // Function to update active player visual indication
     function updateActivePlayerDisplay() {
         // Reset both columns
@@ -230,6 +236,40 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initial active player display
     updateActivePlayerDisplay();
+
+    // Function to end break sequence
+    document.getElementById('end-break').addEventListener('click', function() {
+        // Add current break to active player's frame score
+        if (activePlayer === 'player-one') {
+            playerOneFrameScore += currentBreak;
+            // Update highest break if current break is higher
+            if (currentBreak > playerOneHighestBreak) {
+                playerOneHighestBreak = currentBreak;
+                document.getElementById('player-one-highest-break').textContent = playerOneHighestBreak;
+            }
+            // Update frame score display
+            document.getElementById('player-one-frame-score').textContent = playerOneFrameScore;
+        } else {
+            playerTwoFrameScore += currentBreak;
+            // Update highest break if current break is higher
+            if (currentBreak > playerTwoHighestBreak) {
+                playerTwoHighestBreak = currentBreak;
+                document.getElementById('player-two-highest-break').textContent = playerTwoHighestBreak;
+            }
+            // Update frame score display
+            document.getElementById('player-two-frame-score').textContent = playerTwoFrameScore;
+        }
+
+        // Log the break for testing
+        console.log(`Break of ${currentBreak} added to ${activePlayer}'s score`);
+        
+        // Reset current break
+        currentBreak = 0;
+        document.getElementById('current-break').textContent = currentBreak;
+        
+        // Switch active player
+        switchActivePlayer();
+    });
 });
 
 
