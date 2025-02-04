@@ -47,6 +47,7 @@ NEXT STEPS:
 - Implement End Frame functionality
 - Implement End Match functionality
 - Add sound effects for ball clicks and button presses
+- Refactor code to make more efficient
 
 If time allows, Nice to have...
 
@@ -61,9 +62,11 @@ If time allows, Nice to have...
 
 
 CREDITS:
-- JavaScript localStorage implementation for player names inspired by Scrimba.com free JavaScript lessons
+- JavaScript localStorage implementation for player names inspired by Scrimba.com free JavaScript lessons and https://www.freecodecamp.org/news/use-local-storage-in-modern-applications/#a-practical-example
 - Media queries for responsive control buttons adapted from YouTube tutorial: Learn with Hitgoc https://www.youtube.com/watch?v=nppV4aDtuvo 
+- Modal on end frame functionality assisted by https://www.w3schools.com/bootstrap/bootstrap_modal.asp and Udemy javascript course Master the art of JavaScript Programming by Craig Buckler
 - subtract button functionality added with research on stack overflow
+
 
 TESTING:
 Manual Testing Performed:

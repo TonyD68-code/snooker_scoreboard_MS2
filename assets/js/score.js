@@ -7,13 +7,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize variables
     let currentBreak = 0;
     let activePlayer = 'player-one'; // Start with player one as active
-    
-    // Initialize additional variables
     let playerOneHighestBreak = 0;
     let playerTwoHighestBreak = 0;
     let playerOneFrameScore = 0;
-    let playerTwoFrameScore = 0;
-    
+    let playerTwoFrameScore = 0; 
+    // Initialize frame wins
+    let playerOneFrameWins = 0;
+    let playerTwoFrameWins = 0;
+
     // Function to update active player visual indication
     function updateActivePlayerDisplay() {
         // Reset both columns
@@ -289,6 +290,79 @@ document.addEventListener('DOMContentLoaded', function() {
         // Reset current break
         currentBreak = 0;
         document.getElementById('current-break').textContent = currentBreak;
+    });
+
+    // Add end frame button functionality
+    document.getElementById('end-frame').addEventListener('click', function() {
+        // Determine winner
+        const winner = playerOneFrameScore > playerTwoFrameScore ? 'player-one' : 'player-two';
+        const winnerName = winner === 'player-one' ? 
+            localStorage.getItem('playerOneName') : 
+            localStorage.getItem('playerTwoName');
+        const loserName = winner === 'player-one' ? 
+            localStorage.getItem('playerTwoName') : 
+            localStorage.getItem('playerOneName');
+        const scoreDifference = Math.abs(playerOneFrameScore - playerTwoFrameScore);
+        
+        // Update frame wins
+        if (winner === 'player-one') {
+            playerOneFrameWins++;
+        } else {
+            playerTwoFrameWins++;
+        }
+        
+        // Update frame score
+        document.getElementById('frame-score').textContent = 
+            `${playerOneFrameWins} - ${playerTwoFrameWins}`;
+
+        // Create and show modal
+        const modalHTML = `
+            <div class="modal fade" id="endFrameModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Frame Complete!</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Congratulations ${winnerName}!</p>
+                            <p>You beat ${loserName} by ${scoreDifference} points.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, End Match</button>
+                            <button type="button" class="btn btn-primary" id="playNextFrame">Yes, Play Next Frame</button>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        const modal = new bootstrap.Modal(document.getElementById('endFrameModal'));
+        modal.show();
+        
+        // Play next frame
+        document.getElementById('playNextFrame').addEventListener('click', function() {
+            // Reset frame scores
+            playerOneFrameScore = 0;
+            playerTwoFrameScore = 0;
+            currentBreak = 0;
+            
+            // Update score display
+            document.getElementById('player-one-frame-score').textContent = '0';
+            document.getElementById('player-two-frame-score').textContent = '0';
+            document.getElementById('current-break').textContent = '0';
+            
+            // Close modal
+            modal.hide();
+            document.getElementById('endFrameModal').remove();
+            
+            console.log('Starting new frame');
+        });
+        
+        // Handle end match reset and return to index.html
+        document.querySelector('.btn-secondary').addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
     });
 });
 
