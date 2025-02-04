@@ -65,6 +65,61 @@ CREDITS:
 - Media queries for responsive control buttons adapted from YouTube tutorial: Learn with Hitgoc https://www.youtube.com/watch?v=nppV4aDtuvo 
 - subtract button functionality added with research on stack overflow
 
+TESTING:
+Manual Testing Performed:
+- Form Validation:
+  - Tested empty name submissions
+  - Tested spaces-only submissions
+  - Tested special characters in names
+  - Verified localStorage saves correctly
+
+- Scoring System:
+  - Verified red balls add 1 point
+  - Verified yellow balls add 2 points
+  - Verified green balls add 3 points
+  - Verified brown balls add 4 points
+  - Verified blue balls add 5 points
+  - Verified pink balls add 6 points
+  - Verified black balls add 7 points
+  - Confirmed only active player can score
+  - Tested scoring in both player columns
+  - Verified current break updates correctly
+
+
+- Player Switching:
+  - Tested name click functionality
+  - Verified active player highlighting
+  - Confirmed correct player stays active after scoring
+  - Tested switching during ongoing break
+
+- End Break Button:
+  - Verified score adds to correct player
+  - Confirmed highest break updates correctly
+  - Tested zero point breaks
+  - Verified player switch after break end
+  - Confirmed current break resets to zero
+
+- Subtract Button:
+  - Verified points subtract from correct player
+  - Tested subtraction with zero score
+  - Confirmed current break resets after subtraction
+  - Verified display updates correctly
+
+- Responsive Design:
+  - Tested on multiple screen sizes
+  - Verified column layout maintains on mobile
+  - Confirmed button sizing on different devices
+  - Checked text readability on all backgrounds
+
+Browser Testing:
+- Chrome (Version xx.x)
+- Firefox (Version xx.x)
+- Safari (Version xx.x)
+- Edge (Version xx.x)
+
+Known Bugs:
+- None currently identified
+
 
 
 
