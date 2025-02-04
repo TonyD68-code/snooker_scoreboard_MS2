@@ -70,3 +70,10 @@ h1 {
     margin-top: auto;
     padding-bottom: 20px;
 }
+
+/* control buttons */
+.d-grid .btn {
+    width: 200px;
+    margin: 5px auto;
+    padding: 10px 0;
+}
