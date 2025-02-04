@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 document.addEventListener('DOMContentLoaded', function() {
     // Display player names from localStorage
     document.getElementById('player-one-name').textContent = localStorage.getItem('playerOneName');
