@@ -41,6 +41,24 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('player-one-name').addEventListener('click', switchActivePlayer);
     document.getElementById('player-two-name').addEventListener('click', switchActivePlayer);
 
+    // Add sound effects
+    const sounds = {
+        ball: new Audio('assets/sounds/ball-hit.mp3'),
+        button: new Audio('assets/sounds/button-click.mp3'),
+        endFrame: new Audio('assets/sounds/end-frame.mp3'),
+        foul: new Audio('assets/sounds/foul.mp3')
+    };
+
+    // Function to play sound with error handling
+    function playSound(soundType) {
+        try {
+            sounds[soundType].currentTime = 0; // Reset sound to start
+            sounds[soundType].play();
+        } catch (error) {
+            console.log('Sound could not be played:', error);
+        }
+    }
+
     // Function to handle ball clicks
     function handleBallClick(color, points) {
         const balls = document.querySelectorAll(`.ball-img[src*="${color}"]`);
@@ -51,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if ((activePlayer === 'player-one' && isPlayerOneColumn) ||
                     (activePlayer === 'player-two' && !isPlayerOneColumn)) {
+                    playSound('ball');
                     currentBreak += points;
                     document.getElementById('current-break').textContent = currentBreak;
                 } else {
@@ -71,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // End Break button handler
     document.getElementById('end-break').addEventListener('click', function() {
+        playSound('button');
         if (activePlayer === 'player-one') {
             playerOneFrameScore += currentBreak;
             if (currentBreak > playerOneHighestBreak) {
@@ -94,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add foul points handler
     document.querySelectorAll('.dropdown-item').forEach(button => {
         button.addEventListener('click', function() {
+            playSound('foul');
             const foulPoints = parseInt(this.dataset.foul);
             
             // Add foul points to non-active player's score
@@ -118,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // End Frame button handler
     document.getElementById('end-frame').addEventListener('click', function() {
+        playSound('endFrame');
         const winner = playerOneFrameScore > playerTwoFrameScore ? 'player-one' : 'player-two';
         const winnerName = capitalizeFirstLetter(winner === 'player-one' ? 
             localStorage.getItem('playerOneName') : 
@@ -137,11 +159,11 @@ document.addEventListener('DOMContentLoaded', function() {
             `${playerOneFrameWins} - ${playerTwoFrameWins}`;
 
         const modalHTML = `
-            <div class="modal fade" id="endFrameModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
+            <div class="modal fade" id="endFrameModal" tabindex="-1" role="dialog" aria-labelledby="frameCompleteTitle">
+                <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Frame Complete!</h5>
+                            <h5 class="modal-title" id="frameCompleteTitle">Frame Complete!</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -149,15 +171,18 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p>You beat ${loserName} by ${scoreDifference} points.</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No, End Match</button>
-                            <button type="button" class="btn btn-primary" id="playNextFrame">Yes, Play Next Frame</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="End match and return to start">No, End Match</button>
+                            <button type="button" class="btn btn-primary" id="playNextFrame" aria-label="Start next frame">Yes, Play Next Frame</button>
                         </div>
                     </div>
                 </div>
             </div>`;
         
         document.body.insertAdjacentHTML('beforeend', modalHTML);
-        const modal = new bootstrap.Modal(document.getElementById('endFrameModal'));
+        const modal = new bootstrap.Modal(document.getElementById('endFrameModal'), {
+            keyboard: true,
+            focus: true
+        });
         modal.show();
         
         document.getElementById('playNextFrame').addEventListener('click', function() {
