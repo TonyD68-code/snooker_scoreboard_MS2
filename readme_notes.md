@@ -47,11 +47,16 @@ STYLING:
 - Added gold highlighting for active player
 - Consistent button sizing and spacing
 
+REFACTORING:
+- Refactored code in score.jsto make more efficient
+
+
 NEXT STEPS:
 - Add remaining colored ball scoring
 - Implement End Match functionality
 - Add sound effects for ball clicks and button presses
 - Refactor code to make more efficient
+
 
 -If time allows, Nice to have...
 
@@ -69,6 +74,7 @@ CREDITS:
 - Media queries for responsive control buttons adapted from YouTube tutorial: Learn with Hitgoc https://www.youtube.com/watch?v=nppV4aDtuvo 
 - Modal on end frame functionality assisted by https://www.w3schools.com/bootstrap/bootstrap_modal.asp and Udemy javascript course Master the art of JavaScript Programming by Craig Buckler
 - subtract button functionality added with research on stack overflow
+- refactoring assistance from stack overflow https://stackoverflow.com/questions/79413327/refactoring-the-following-javascript/79413352#79413352
 
 
 TESTING:
