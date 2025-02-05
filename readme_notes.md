@@ -72,9 +72,11 @@ NEXT STEPS:
 CREDITS:
 - JavaScript localStorage implementation for player names inspired by Scrimba.com free JavaScript lessons and https://www.freecodecamp.org/news/use-local-storage-in-modern-applications/#a-practical-example
 - Media queries for responsive control buttons adapted from YouTube tutorial: Learn with Hitgoc https://www.youtube.com/watch?v=nppV4aDtuvo 
+
 - Modal on end frame functionality assisted by https://www.w3schools.com/bootstrap/bootstrap_modal.asp and Udemy javascript course Master the art of JavaScript Programming by Craig Buckler
 - subtract button functionality added with research on stack overflow
 - refactoring assistance from stack overflow https://stackoverflow.com/questions/79413327/refactoring-the-following-javascript/79413352#79413352
+- dropdown menu for foul points button assisted by https://www.w3schools.com/bootstrap/bootstrap_dropdowns.asp
 
 
 TESTING:

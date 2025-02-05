@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let playerTwoHighestBreak = 0;
     let playerOneFrameWins = 0;
     let playerTwoFrameWins = 0;
+    let startingPlayer = 'player-one';
 
     // Display player names from localStorage
     document.getElementById('player-one-name').textContent = localStorage.getItem('playerOneName');
@@ -159,8 +160,15 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('player-one-frame-score').textContent = '0';
             document.getElementById('player-two-frame-score').textContent = '0';
             document.getElementById('current-break').textContent = '0';
+            
+            startingPlayer = startingPlayer === 'player-one' ? 'player-two' : 'player-one';
+            activePlayer = startingPlayer;
+            updateActivePlayerDisplay();
+            
             modal.hide();
             document.getElementById('endFrameModal').remove();
+            
+            console.log(`Starting new frame with ${startingPlayer} to break`);
         });
         
         document.querySelector('.btn-secondary').addEventListener('click', function() {
