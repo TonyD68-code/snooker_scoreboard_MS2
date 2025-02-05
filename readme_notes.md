@@ -77,6 +77,7 @@ CREDITS:
 - subtract button functionality added with research on stack overflow
 - refactoring assistance from stack overflow https://stackoverflow.com/questions/79413327/refactoring-the-following-javascript/79413352#79413352
 - dropdown menu for foul points button assisted by https://www.w3schools.com/bootstrap/bootstrap_dropdowns.asp
+- player name capitalization assistance from stack overflow https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript
 
 
 TESTING:
