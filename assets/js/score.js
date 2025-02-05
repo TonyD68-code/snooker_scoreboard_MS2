@@ -11,9 +11,16 @@ document.addEventListener('DOMContentLoaded', function() {
     let playerTwoFrameWins = 0;
     let startingPlayer = 'player-one';
 
-    // Display player names from localStorage
-    document.getElementById('player-one-name').textContent = localStorage.getItem('playerOneName');
-    document.getElementById('player-two-name').textContent = localStorage.getItem('playerTwoName');
+    // Add capitalize function
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    }
+
+    // Display player names from localStorage with capitalization
+    document.getElementById('player-one-name').textContent = 
+        capitalizeFirstLetter(localStorage.getItem('playerOneName'));
+    document.getElementById('player-two-name').textContent = 
+        capitalizeFirstLetter(localStorage.getItem('playerTwoName'));
 
     // Function to update active player display
     function updateActivePlayerDisplay() {
@@ -112,12 +119,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // End Frame button handler
     document.getElementById('end-frame').addEventListener('click', function() {
         const winner = playerOneFrameScore > playerTwoFrameScore ? 'player-one' : 'player-two';
-        const winnerName = winner === 'player-one' ? 
+        const winnerName = capitalizeFirstLetter(winner === 'player-one' ? 
             localStorage.getItem('playerOneName') : 
-            localStorage.getItem('playerTwoName');
-        const loserName = winner === 'player-one' ? 
+            localStorage.getItem('playerTwoName'));
+        const loserName = capitalizeFirstLetter(winner === 'player-one' ? 
             localStorage.getItem('playerTwoName') : 
-            localStorage.getItem('playerOneName');
+            localStorage.getItem('playerOneName'));
         const scoreDifference = Math.abs(playerOneFrameScore - playerTwoFrameScore);
         
         if (winner === 'player-one') {
