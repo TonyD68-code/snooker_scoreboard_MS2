@@ -79,6 +79,8 @@ CREDITS:
 - dropdown menu for foul points button assisted by https://www.w3schools.com/bootstrap/bootstrap_dropdowns.asp
 - player name capitalization assistance from stack overflow https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript
 
+Fix <link rel=preload> uses an unsupported `as` value: I struggled to find a solution for this on the regular sites so tried chatGPT to explain the error and the ai suggested using prefetch instead.
+
 
 TESTING:
 Manual Testing Performed:
