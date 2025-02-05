@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
             activePlayer = startingPlayer;
             updateActivePlayerDisplay();
             
-            modal.hide();
+            modal.hide(); 
             document.getElementById('endFrameModal').remove();
             
             console.log(`Starting new frame with ${startingPlayer} to break`);
