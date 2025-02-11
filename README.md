@@ -48,7 +48,10 @@ Fouls result in penalty points being awarded to the opponent, ranging from 4 to 
 | Double-clicking balls adds score twice | Fixed | Added click event debouncing |
 | Player names not capitalizing consistently | Fixed | Implemented capitalize function |
 | Foul points sometimes awarded to wrong player | In Progress | Reviewing logic |
-
+| Alignment of foul points button | Fixed | Added CSS classes to the button |
+| Columns not aligning correctly | Fixed | Added CSS classes to the columns (Col-4) |
+| Score not updating correctly | Fixed | Added a function to update the score |
+| Score not resetting correctly | Fixed | Added a function to reset the score |
 ## ✅ Testing
 
 ### User Story Testing
@@ -57,6 +60,15 @@ Fouls result in penalty points being awarded to the opponent, ranging from 4 to 
 | "As a user, I want to easily input player names" | Tested name input validation | Pass |
 | "As a user, I want to track current break" | Tested break accumulation | Pass |
 | "As a user, I want to correct scoring mistakes" | Tested point subtraction | Pass |
+| "As a user, I want to see the current break" | Tested break display | Pass |
+| "As a user, I want to see the highest break" | Tested highest break display | Pass |
+| "As a user, I want to see the current player" | Tested player highlighting | Pass |
+| "As a user, I want to see the current frame" | Tested frame display | Pass |
+| "As a user, I want to see the current player's score" | Tested score display | Pass |
+| "As a user, I want to see the current player's highest break" | Tested highest break display | Pass |
+
+
+
 
 ### Browser Compatibility
 - Chrome (Version 100+) ✅
