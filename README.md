@@ -29,6 +29,14 @@ Fouls result in penalty points being awarded to the opponent, ranging from 4 to 
 - Input player names intuitively
 - Quickly grasp the scoring interface
 - Track scores without confusion
+- see highest break
+- see current break
+- see current player
+- see current frame
+- see score
+- see foul points
+- see current player's score
+
 
 ### Returning Visitor Goals
 - Quickly start new matches
@@ -57,18 +65,23 @@ Fouls result in penalty points being awarded to the opponent, ranging from 4 to 
 ### User Story Testing
 | User Story | Test | Result |
 |------------|------|---------|
-| "As a user, I want to easily input player names" | Tested name input validation | Pass |
-| "As a user, I want to track current break" | Tested break accumulation | Pass |
-| "As a user, I want to correct scoring mistakes" | Tested point subtraction | Pass |
-| "As a user, I want to see the current break" | Tested break display | Pass |
-| "As a user, I want to see the highest break" | Tested highest break display | Pass |
-| "As a user, I want to see the current player" | Tested player highlighting | Pass |
-| "As a user, I want to see the current frame" | Tested frame display | Pass |
-| "As a user, I want to see the current player's score" | Tested score display | Pass |
-| "As a user, I want to see the current player's highest break" | Tested highest break display | Pass |
-
-
-
+| **First Time Visitor Goals** |
+| "As a first-time user, I want to easily input player names" | Tested name input validation | Pass |
+| "As a first-time user, I want to quickly grasp the scoring interface" | Tested UI clarity and tooltips | Pass |
+| "As a first-time user, I want to track scores without confusion" | Tested score display visibility | Pass |
+| "As a first-time user, I want to see the highest break" | Tested highest break display | Pass |
+| "As a first-time user, I want to see the current break" | Tested break accumulation and display | Pass |
+| "As a first-time user, I want to see the current player" | Tested player highlighting | Pass |
+| "As a first-time user, I want to see the current frame" | Tested frame display | Pass |
+| "As a first-time user, I want to see the score" | Tested score display functionality | Pass |
+| "As a first-time user, I want to see foul points" | Tested foul points system | Pass |
+| "As a first-time user, I want to see current player's score" | Tested individual score tracking | Pass |
+| **Returning Visitor Goals** |
+| "As a returning user, I want to quickly start new matches" | Tested new game functionality | Pass |
+| **Site Owner Goals** |
+| "As the site owner, I want to provide reliable scoring" | Tested score calculation accuracy | Pass |
+| "As the site owner, I want to ensure score correction is possible" | Tested point subtraction functionality | Pass |
+| "As the site owner, I want to maintain accurate score tracking" | Tested score persistence and updates | Pass |
 
 ### Browser Compatibility
 - Chrome (Version 100+) ✅
@@ -122,11 +135,13 @@ Fouls result in penalty points being awarded to the opponent, ranging from 4 to 
 - Background image: elements.envato.com
 
 ### Acknowledgements
-- My mentor Sheryl
-- The current snooker world champion for feedback and future features
-- Code Institute for project guidance
-- Stack Overflow for debugging
-- Slack community for support
+- My mentor Sheryl Goldberg for her support and guidance
+- The current snooker world champion and friend Kyren Wilson for feedback and ideas for future features
+- Code Institute for project guidance and support from Rachel Furlong
+- Stack Overflow for debugging and helping me understand the code better
+- Slack community for support and debugging
+- Scrimba for the tutorial on javascript allowing me to understand the code better and implement it into my project
+- javascript30 picked up many snippets of code and ideas from this website
 
 
 
